@@ -20,17 +20,24 @@ public class StudentController {
     public List<Student> getStudents() {
         return studentService.getStudents();
     }
+    //Get http://localhost:8080/api/v1/students
 
     @PostMapping
     public void registerNewStudent(@RequestBody Student student) {
         studentService.addNewStudent(student);  // Shift + alt + enter
     }
-//     POST http://localhost:8080/api/v1/students
-//     Content-Type: application/json
-//        {
-//            "name": "Bilal",
-//            "email": "bilal.ahmed@gmail.com",
-//            "dob": "1995-12-17"
-//        }
+    /*
+     POST http://localhost:8080/api/v1/students
+     Content-Type: application/json
+        {
+            "name": "Bilal",
+            "email": "bilal.ahmed@gmail.com",
+            "dob": "1995-12-17"
+        }
+     */
 
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(@PathVariable("studentId") Long studentId) {
+        studentService.deleteStudent(studentId);
+    }
 }
