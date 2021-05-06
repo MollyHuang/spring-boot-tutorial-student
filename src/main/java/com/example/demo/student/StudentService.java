@@ -21,4 +21,9 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    void addNewStudent(Student student) {
+        // sout
+        System.out.println(student);
+    }
+
 }
